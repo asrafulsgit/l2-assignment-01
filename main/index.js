@@ -14,7 +14,6 @@ function formatString(input, toUpper) {
     }
     return input.toLowerCase();
 }
-// console.log(formatString("Hello", false))
 function filterByRating(items) {
     const filter = items.filter(item => item.rating >= 4);
     return filter;
@@ -24,11 +23,9 @@ const books = [
     { title: "Book B", rating: 3.2 },
     { title: "Book C", rating: 5.0 }
 ];
-// console.log(filterByRating(books))
 function concatenateArrays(...arrays) {
     return arrays.reduce((array, curr) => [...array, ...curr], []);
 }
-// console.log(concatenateArrays([1, 2,2], [3, 4], [5]))
 class Vehicle {
     constructor(make, year) {
         this.make = make;
@@ -48,8 +45,6 @@ class Car extends Vehicle {
     }
 }
 const myCar = new Car("Toyota", 2020, "Corolla");
-// myCar.getInfo()
-// myCar.getModel()
 function processValue(value) {
     if (typeof value === 'string') {
         return value.length;
@@ -63,12 +58,6 @@ function getMostExpensiveProduct(products) {
         return curr.price > highest.price ? curr : highest;
     });
 }
-const products = [
-    { name: "Pen", price: 80 },
-    { name: "Notebook", price: 25 },
-    { name: "Bag", price: 50 }
-];
-// console.log(getMostExpensiveProduct(products));
 var Day;
 (function (Day) {
     Day[Day["Monday"] = 0] = "Monday";
@@ -85,7 +74,6 @@ function getDayType(day) {
     }
     return "Weekday";
 }
-// console.log(getDayType(Day.Friday))
 function squareAsync(n) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
@@ -98,5 +86,3 @@ function squareAsync(n) {
         });
     });
 }
-squareAsync(4).then(console.log);
-// squareAsync(-3).catch(console.error);   
