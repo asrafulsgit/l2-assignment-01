@@ -23,7 +23,7 @@ class Vehicle {
         this.year = year;
     }
     getInfo(){
-        console.log(`Make: ${this.make}, Year: ${this.year}`)
+        return `Make: ${this.make}, Year: ${this.year}` 
     }
 }
 
@@ -35,10 +35,9 @@ class Car extends Vehicle{
     }
 
     getModel(){
-        console.log(`Model : ${this.model}`)
+        return `Model : ${this.model}`
     }
 }
-const myCar = new Car("Toyota", 2020, "Corolla");
 
 
 function processValue(value: string | number): number{
