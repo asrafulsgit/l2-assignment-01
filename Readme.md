@@ -11,7 +11,7 @@ An interface in TypeScript is a structure (like a schema) for an object. It tell
 //     property : type;
 // }
 ```
-For example, I have a "car" object, we can use an interface:
+For example, if I have a "car" object, I can define it using an interface:
 ```
 interface Car {     
   name: string;
@@ -20,7 +20,7 @@ interface Car {
 ```
 
 ## What is a Type?
-In TypeScript, type is similar to an interface. But we can use type for more things.
+In TypeScript, a type is similar to an interface, but it can be used for more things.
 We can use types for a variable structure, for an object structure, etc.
 One more thing is we can use it with union and intersection.
 ```typescript
@@ -30,7 +30,7 @@ One more thing is we can use it with union and intersection.
 //     property : type;
 // }
 ```
-For example, my name is Asraful and i have a cat
+For example, my name is Asraful and I have a cat.
 ```
 type name = string;
 
@@ -50,5 +50,45 @@ In TypeScript, two important things are interfaces and types. These help us defi
 2. Interface can extend from another interface, but type does not extend from another type.
 
 3. You can use multiple interfaces with the same name and merge them — type cannot do this.
+
+
+
+# Provide an example of using union and intersection types in TypeScript.
+
+**Union Type**
+Union is a combination of multiple types. it works like an (or) Operation.
+
+example
+```typescript
+
+type ID = string | number;
+
+const id : ID = '1s4f1fd0';
+const userId : ID = 10251;
+
+```
+explanation :  it can receive both type of value 
+
+
+**Intersection Type**
+
+intersection is a combines multiple types into one. it works like (and) operation
+
+
+exapmle 
+```typescript
+type Person = {name : string }
+type Employee = { id : number}
+
+type EmpInfo = Person & Employee;
+
+
+const empInfo : EmpInfo ={
+  name : 'karim',
+  id : 1532
+}
+```
+explanation : it combine two type of value in one type
+
 
 

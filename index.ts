@@ -10,12 +10,6 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
     const filter = items.filter(item => item.rating >= 4 )
     return filter
 }
-const books = [
-    { title: "Book A", rating: 4.5 },
-    { title: "Book B", rating: 3.2 },
-    { title: "Book C", rating: 5.0 }
-  ];
-
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     return arrays.reduce((array, curr) => [...array, ...curr], []);
@@ -44,8 +38,8 @@ class Car extends Vehicle{
         console.log(`Model : ${this.model}`)
     }
 }
-
 const myCar = new Car("Toyota", 2020, "Corolla");
+
 
 function processValue(value: string | number): number{
    
