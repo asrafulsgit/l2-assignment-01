@@ -1,5 +1,4 @@
 function formatString(input: string, toUpper?: boolean): string{
-
     if( toUpper  === true || toUpper === undefined){
         return input.toUpperCase()
     }
@@ -12,8 +11,13 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
     const filter = items.filter(item => item.rating >= 4 )
     return filter
 }
+const books = [
+    { title: "Book A", rating: 4.5 },
+    { title: "Book B", rating: 3.2 },
+    { title: "Book C", rating: 5.0 }
+  ];
 
-// console.log(filterByRating())
+// console.log(filterByRating(books))
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
     return arrays.reduce((array, curr) => [...array, ...curr], []);
@@ -27,7 +31,6 @@ class Vehicle {
         this.make = make;
         this.year = year;
     }
-
     getInfo(){
         console.log(`Make: ${this.make}, Year: ${this.year}`)
     }
@@ -73,11 +76,11 @@ function getMostExpensiveProduct(products: Product[]): Product | null{
     })
 
 }
-// const products = [
-//     { name: "Pen", price: 80 },
-//     { name: "Notebook", price: 25 },
-//     { name: "Bag", price: 50 }
-//   ];
+const products = [
+    { name: "Pen", price: 80 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+  ];
 // console.log(getMostExpensiveProduct(products));
 
 enum Day {
@@ -91,7 +94,7 @@ enum Day {
   }
   
   function getDayType(day: Day): string{
-    if(day === Day.Friday || day === Day.Saturday){
+    if(day === Day.Saturday || day === Day.Sunday){
         return "Weekend"
     }
     return "Weekday"
@@ -100,15 +103,14 @@ enum Day {
 
 async function squareAsync(n: number): Promise<number> {
     return new Promise((resolve, reject) => {
+        if (n < 0) {
+            reject(new Error("Negative number not allowed"));
+        }
         setTimeout(() => {
-            if (n < 0) {
-                reject(new Error("Negative number not allowed"));
-            } else {
-                resolve(n * n);
-            }
+            resolve(n * n);
         }, 1000);
     });
 }
 
-// squareAsync(4).then(console.log);        
+squareAsync(4).then(console.log);        
 // squareAsync(-3).catch(console.error);   

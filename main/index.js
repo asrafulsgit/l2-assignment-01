@@ -19,7 +19,12 @@ function filterByRating(items) {
     const filter = items.filter(item => item.rating >= 4);
     return filter;
 }
-// console.log(filterByRating())
+const books = [
+    { title: "Book A", rating: 4.5 },
+    { title: "Book B", rating: 3.2 },
+    { title: "Book C", rating: 5.0 }
+];
+// console.log(filterByRating(books))
 function concatenateArrays(...arrays) {
     return arrays.reduce((array, curr) => [...array, ...curr], []);
 }
@@ -58,11 +63,11 @@ function getMostExpensiveProduct(products) {
         return curr.price > highest.price ? curr : highest;
     });
 }
-// const products = [
-//     { name: "Pen", price: 80 },
-//     { name: "Notebook", price: 25 },
-//     { name: "Bag", price: 50 }
-//   ];
+const products = [
+    { name: "Pen", price: 80 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+];
 // console.log(getMostExpensiveProduct(products));
 var Day;
 (function (Day) {
@@ -75,7 +80,7 @@ var Day;
     Day[Day["Sunday"] = 6] = "Sunday";
 })(Day || (Day = {}));
 function getDayType(day) {
-    if (day === Day.Friday || day === Day.Saturday) {
+    if (day === Day.Saturday || day === Day.Sunday) {
         return "Weekend";
     }
     return "Weekday";
@@ -84,16 +89,14 @@ function getDayType(day) {
 function squareAsync(n) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
+            if (n < 0) {
+                reject(new Error("Negative number not allowed"));
+            }
             setTimeout(() => {
-                if (n < 0) {
-                    reject(new Error("Negative number not allowed"));
-                }
-                else {
-                    resolve(n * n);
-                }
+                resolve(n * n);
             }, 1000);
         });
     });
 }
-// squareAsync(4).then(console.log);        
+squareAsync(4).then(console.log);
 // squareAsync(-3).catch(console.error);   
